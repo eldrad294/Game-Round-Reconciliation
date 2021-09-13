@@ -178,10 +178,19 @@ services:
       KAFKA_REST_SCHEMA_REGISTRY_URL: 'http://schema-registry:8081'
 
   nifi:
-    image: apache/nifi:latest
+    image: mynifi  # Had to create my custom docker image inorder to chmod the csv folder and then mount the files on the same directory via volume.
     ports:
-      - 8443:8443 # Unsecured HTTP Web Port
+      - 8443:8443
     container_name: nifi
+    depends_on:
+      - broker
+    environment:
+      SINGLE_USER_CREDENTIALS_USERNAME: admin
+      SINGLE_USER_CREDENTIALS_PASSWORD: ctsBtRBKHRAx69EqUghvvgEvjnaLjFEB
+      NIFI_ZK_CONNECT_STRING: 'zookeeper:2181'
+    volumes:
+      - ./data/part1_gameround.csv:/opt/nifi/nifi-current/data/part1_gameround.csv:rw
+      - ./data/part2_gameround.csv:/opt/nifi/nifi-current/data/part2_gameround.csv:rw
 
   db:
     image: postgres:latest
