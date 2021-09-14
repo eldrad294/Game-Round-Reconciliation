@@ -1,0 +1,25 @@
+server:
+  port: 9000
+spring:
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: group_id
+      auto-offset-reset: earliest
+  jpa:
+    generate-ddl: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        ddl-auto: create
+        jdbc:
+          time_zone: CET
+  datasource:
+    url: jdbc:postgresql://localhost:5433/db
+    username: user
+    password: password
+    driver-class-name: org.postgresql.Driver
+
+logging:
+  level:
+    root: INFO
