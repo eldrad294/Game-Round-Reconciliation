@@ -43,6 +43,7 @@ services:
       - 8443:8443
     container_name: nifi
     depends_on:
+      - zookeeper
       - broker
     environment:
       SINGLE_USER_CREDENTIALS_USERNAME: admin
@@ -52,7 +53,7 @@ services:
       - ./data/part1_gameround.csv:/opt/nifi/nifi-current/data/part1_gameround.csv:rw
       - ./data/part2_gameround.csv:/opt/nifi/nifi-current/data/part2_gameround.csv:rw
 
-  db:
+  postgres:
     image: postgres:latest
     container_name: postgres
     restart: always
@@ -68,6 +69,17 @@ services:
     container_name: adminer
     restart: always
     depends_on:
-      - db
+      - postgres
     ports:
       - 8084:8080
+
+  game-round-reconciliation:
+    image: game-round-reconciliation
+    container_name: game-round-reconciliation
+    restart: always
+    depends_on:
+      - zookeeper
+      - postgres
+      - broker
+    ports:
+      - 80:80
