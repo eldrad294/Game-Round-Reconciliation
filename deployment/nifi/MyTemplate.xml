@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <template encoding-version="1.3">
-    <description></description>
-    <groupId>e082dc18-017b-1000-a7eb-2d4497e572c3</groupId>
-    <name>MyTemplate4</name>
+    <description>Final Flow</description>
+    <groupId>e9b3d996-017b-1000-1e0d-7d5bfd0795ce</groupId>
+    <name>MyTemplate</name>
     <snippet>
         <connections>
-            <id>dacd7402-6495-3d10-0000-000000000000</id>
-            <parentGroupId>bee1e0b7-3c83-35ed-0000-000000000000</parentGroupId>
+            <id>25ea3827-f8db-35ea-0000-000000000000</id>
+            <parentGroupId>094bd972-4943-3e4a-0000-000000000000</parentGroupId>
             <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
             <backPressureObjectThreshold>10000</backPressureObjectThreshold>
             <destination>
-                <groupId>bee1e0b7-3c83-35ed-0000-000000000000</groupId>
-                <id>8ec794d3-41da-363e-0000-000000000000</id>
+                <groupId>094bd972-4943-3e4a-0000-000000000000</groupId>
+                <id>a6ef7136-6fc0-3390-0000-000000000000</id>
                 <type>PROCESSOR</type>
             </destination>
             <flowFileExpiration>0 sec</flowFileExpiration>
@@ -23,15 +23,40 @@
             <name></name>
             <selectedRelationships>success</selectedRelationships>
             <source>
-                <groupId>bee1e0b7-3c83-35ed-0000-000000000000</groupId>
-                <id>7818b09c-b7e3-394e-0000-000000000000</id>
+                <groupId>094bd972-4943-3e4a-0000-000000000000</groupId>
+                <id>12adbebf-24dc-3826-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <connections>
+            <id>7d957775-d86d-371d-0000-000000000000</id>
+            <parentGroupId>094bd972-4943-3e4a-0000-000000000000</parentGroupId>
+            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+            <destination>
+                <groupId>094bd972-4943-3e4a-0000-000000000000</groupId>
+                <id>a6ef7136-6fc0-3390-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+            <name></name>
+            <selectedRelationships>success</selectedRelationships>
+            <source>
+                <groupId>094bd972-4943-3e4a-0000-000000000000</groupId>
+                <id>98d417a2-d205-35d3-0000-000000000000</id>
                 <type>PROCESSOR</type>
             </source>
             <zIndex>0</zIndex>
         </connections>
         <controllerServices>
-            <id>8c64b80b-836d-3d6a-0000-000000000000</id>
-            <parentGroupId>bee1e0b7-3c83-35ed-0000-000000000000</parentGroupId>
+            <id>01676c3f-8834-332d-0000-000000000000</id>
+            <parentGroupId>094bd972-4943-3e4a-0000-000000000000</parentGroupId>
             <bundle>
                 <artifact>nifi-record-serialization-services-nar</artifact>
                 <group>org.apache.nifi</group>
@@ -283,8 +308,8 @@
             <type>org.apache.nifi.csv.CSVReader</type>
         </controllerServices>
         <controllerServices>
-            <id>b1190199-8d3d-3093-0000-000000000000</id>
-            <parentGroupId>bee1e0b7-3c83-35ed-0000-000000000000</parentGroupId>
+            <id>b27c5c11-5cf6-397b-0000-000000000000</id>
+            <parentGroupId>094bd972-4943-3e4a-0000-000000000000</parentGroupId>
             <bundle>
                 <artifact>nifi-record-serialization-services-nar</artifact>
                 <group>org.apache.nifi</group>
@@ -497,11 +522,166 @@
             <type>org.apache.nifi.json.JsonRecordSetWriter</type>
         </controllerServices>
         <processors>
-            <id>7818b09c-b7e3-394e-0000-000000000000</id>
-            <parentGroupId>bee1e0b7-3c83-35ed-0000-000000000000</parentGroupId>
+            <id>12adbebf-24dc-3826-0000-000000000000</id>
+            <parentGroupId>094bd972-4943-3e4a-0000-000000000000</parentGroupId>
             <position>
                 <x>0.0</x>
-                <y>5.0</y>
+                <y>232.0</y>
+            </position>
+            <bundle>
+                <artifact>nifi-standard-nar</artifact>
+                <group>org.apache.nifi</group>
+                <version>1.14.0</version>
+            </bundle>
+            <config>
+                <bulletinLevel>WARN</bulletinLevel>
+                <comments></comments>
+                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                <descriptors>
+                    <entry>
+                        <key>Input Directory</key>
+                        <value>
+                            <name>Input Directory</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>File Filter</key>
+                        <value>
+                            <name>File Filter</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Path Filter</key>
+                        <value>
+                            <name>Path Filter</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Batch Size</key>
+                        <value>
+                            <name>Batch Size</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Keep Source File</key>
+                        <value>
+                            <name>Keep Source File</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Recurse Subdirectories</key>
+                        <value>
+                            <name>Recurse Subdirectories</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Polling Interval</key>
+                        <value>
+                            <name>Polling Interval</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Ignore Hidden Files</key>
+                        <value>
+                            <name>Ignore Hidden Files</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Minimum File Age</key>
+                        <value>
+                            <name>Minimum File Age</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Maximum File Age</key>
+                        <value>
+                            <name>Maximum File Age</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Minimum File Size</key>
+                        <value>
+                            <name>Minimum File Size</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Maximum File Size</key>
+                        <value>
+                            <name>Maximum File Size</name>
+                        </value>
+                    </entry>
+                </descriptors>
+                <executionNode>ALL</executionNode>
+                <lossTolerant>false</lossTolerant>
+                <penaltyDuration>30 sec</penaltyDuration>
+                <properties>
+                    <entry>
+                        <key>Input Directory</key>
+                        <value>/opt/nifi/nifi-current/data/</value>
+                    </entry>
+                    <entry>
+                        <key>File Filter</key>
+                        <value>part2_gameround.csv</value>
+                    </entry>
+                    <entry>
+                        <key>Path Filter</key>
+                    </entry>
+                    <entry>
+                        <key>Batch Size</key>
+                        <value>10</value>
+                    </entry>
+                    <entry>
+                        <key>Keep Source File</key>
+                        <value>true</value>
+                    </entry>
+                    <entry>
+                        <key>Recurse Subdirectories</key>
+                        <value>true</value>
+                    </entry>
+                    <entry>
+                        <key>Polling Interval</key>
+                        <value>0 sec</value>
+                    </entry>
+                    <entry>
+                        <key>Ignore Hidden Files</key>
+                        <value>true</value>
+                    </entry>
+                    <entry>
+                        <key>Minimum File Age</key>
+                        <value>0 sec</value>
+                    </entry>
+                    <entry>
+                        <key>Maximum File Age</key>
+                    </entry>
+                    <entry>
+                        <key>Minimum File Size</key>
+                        <value>0 B</value>
+                    </entry>
+                    <entry>
+                        <key>Maximum File Size</key>
+                    </entry>
+                </properties>
+                <runDurationMillis>0</runDurationMillis>
+                <schedulingPeriod>0 sec</schedulingPeriod>
+                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                <yieldDuration>1 sec</yieldDuration>
+            </config>
+            <executionNodeRestricted>false</executionNodeRestricted>
+            <name>GetFile</name>
+            <relationships>
+                <autoTerminate>false</autoTerminate>
+                <name>success</name>
+            </relationships>
+            <state>STOPPED</state>
+            <style/>
+            <type>org.apache.nifi.processors.standard.GetFile</type>
+        </processors>
+        <processors>
+            <id>98d417a2-d205-35d3-0000-000000000000</id>
+            <parentGroupId>094bd972-4943-3e4a-0000-000000000000</parentGroupId>
+            <position>
+                <x>0.0</x>
+                <y>0.0</y>
             </position>
             <bundle>
                 <artifact>nifi-standard-nar</artifact>
@@ -652,11 +832,11 @@
             <type>org.apache.nifi.processors.standard.GetFile</type>
         </processors>
         <processors>
-            <id>8ec794d3-41da-363e-0000-000000000000</id>
-            <parentGroupId>bee1e0b7-3c83-35ed-0000-000000000000</parentGroupId>
+            <id>a6ef7136-6fc0-3390-0000-000000000000</id>
+            <parentGroupId>094bd972-4943-3e4a-0000-000000000000</parentGroupId>
             <position>
-                <x>592.0</x>
-                <y>0.0</y>
+                <x>656.0</x>
+                <y>144.0</y>
             </position>
             <bundle>
                 <artifact>nifi-kafka-2-6-nar</artifact>
@@ -849,11 +1029,11 @@
                     </entry>
                     <entry>
                         <key>record-reader</key>
-                        <value>8c64b80b-836d-3d6a-0000-000000000000</value>
+                        <value>01676c3f-8834-332d-0000-000000000000</value>
                     </entry>
                     <entry>
                         <key>record-writer</key>
-                        <value>b1190199-8d3d-3093-0000-000000000000</value>
+                        <value>b27c5c11-5cf6-397b-0000-000000000000</value>
                     </entry>
                     <entry>
                         <key>use-transactions</key>
@@ -957,5 +1137,5 @@
             <type>org.apache.nifi.processors.kafka.pubsub.PublishKafkaRecord_2_6</type>
         </processors>
     </snippet>
-    <timestamp>09/13/2021 19:12:55 UTC</timestamp>
+    <timestamp>09/15/2021 13:47:18 UTC</timestamp>
 </template>
