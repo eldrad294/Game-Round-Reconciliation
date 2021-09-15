@@ -17,7 +17,7 @@ public class BetConsumer {
     }
 
     @KafkaListener(topics = "staging-bets", groupId = "group_id")
-    public void consume(Bet bet) throws InterruptedException {
+    public void consume(Bet bet){
         log.debug("Consumed bet -> {}", bet.toString());
         this.betImpl.upsertBet(bet);
     }

@@ -24,7 +24,7 @@ public class BetImpl implements BetService {
         Optional<Bet> result = this.betRepository.findById(bet.getGameInstanceId());
         if (result.isEmpty()){
             this.betRepository.save(bet);
-            log.info("Inserting bet -> {}", bet);
+            log.info("Inserted bet -> {}", bet);
         }else{
             Bet updatedBet = result.get();
 
@@ -40,6 +40,7 @@ public class BetImpl implements BetService {
             updatedBet.setId(bet.getId());
 
             this.betRepository.save(updatedBet);
+            log.info("Updated bet -> {}", bet);
         }
 
     }
