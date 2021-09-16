@@ -4,6 +4,7 @@ spring:
   kafka:
     consumer:
       bootstrap-servers: broker:29092
+#      bootstrap-servers: localhost:9092
       group-id: group_id
       auto-offset-reset: earliest
   jpa:
@@ -16,6 +17,7 @@ spring:
           time_zone: CET
   datasource:
     url: jdbc:postgresql://postgres:5432/db
+#    url: jdbc:postgresql://localhost:5433/db
     username: user
     password: password
     driver-class-name: org.postgresql.Driver
