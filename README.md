@@ -24,8 +24,14 @@ The java based service offers two alternatives to viewing aggregates:
 - docker build -t mynifi -f deployment/nifi/Dockerfile .
 - docker build -t game-round-reconciliation -f deployment/game-round-reconciliation/Dockerfile .
 - cd deployment/
-- docker-compose up
-- Navigate to https://localhost:8443/nifi/ and upload deployment/MyTemplate.xml. Load the template, and start the data flow through Nifi.
+- docker-compose up 
+  - (Don't run in detached mode, otherwise you will not be able to see the consumer logging)
+- Navigate to https://localhost:8443/nifi/ 
+  - Login with user: admin and password: ctsBtRBKHRAx69EqUghvvgEvjnaLjFEB
+  - Upload deployment/MyTemplate.xml. 
+  - Load the template
+  - Enable Kafka Process
+  - Start the data flow through Nifi.
 
 ### Verification
 
