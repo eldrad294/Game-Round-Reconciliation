@@ -1,6 +1,6 @@
-package com.example.gameroundreconciliation;
+package com.gameroundreconciliation;
 
-import com.example.gameroundreconciliation.controllers.Microservice;
+import com.gameroundreconciliation.controllers.Microservice;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

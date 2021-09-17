@@ -1,6 +1,6 @@
-package com.example.gameroundreconciliation.kafka;
+package com.gameroundreconciliation.kafka;
 
-import com.example.gameroundreconciliation.jpa.bet.Bet;
+import com.gameroundreconciliation.jpa.bet.Bet;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,6 +24,9 @@ public class KafkaConsumerConfig {
     @Value("${spring.kafka.consumer.bootstrap-servers}")
     private String brokers;
 
+    /**
+     * Bean injection for {@link ConsumerFactory}.
+     * */
     @Bean
     public ConsumerFactory<String, Bet> consumerFactory() {
         Map<String, Object> props = new HashMap<>();
@@ -36,6 +39,9 @@ public class KafkaConsumerConfig {
         );
     }
 
+    /**
+     * Bean injection for {@link ConcurrentKafkaListenerContainerFactory}, of type {@link String}, {@link Bet}.
+     * */
     @Bean
     public ConcurrentKafkaListenerContainerFactory<String, Bet> kafkaListenerContainerFactory() {
         ConcurrentKafkaListenerContainerFactory<String, Bet> factory = new ConcurrentKafkaListenerContainerFactory<>();

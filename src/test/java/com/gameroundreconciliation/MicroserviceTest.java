@@ -1,6 +1,6 @@
-package com.example.gameroundreconciliation;
+package com.gameroundreconciliation;
 
-import com.example.gameroundreconciliation.controllers.Microservice;
+import com.gameroundreconciliation.controllers.Microservice;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-@ContextConfiguration(classes=Microservice.class)
+
+@ContextConfiguration(classes= Microservice.class)
 @WebMvcTest(controllers = Microservice.class)
 @Slf4j
 public class MicroserviceTest {
@@ -77,6 +78,20 @@ public class MicroserviceTest {
         String to = "x";
         String userId = "x";
         String urlTemplate = "/getHourlyAggregates/" + from + "/" + to + "/" + userId;
+        log.info("Mock MVC template mock > {}", urlTemplate);
+        mockMvc.perform(get(urlTemplate)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON)
+                        .characterEncoding(StandardCharsets.UTF_8.displayName()))
+                .andExpect(status().isOk()).andExpect(content().string(containsString("")));
+    }
+
+    @Test
+    public void getPreAggregatesTest() throws Exception {
+        String from = "x";
+        String to = "x";
+        String userId = "x";
+        String urlTemplate = "/getPreAggregates/" + from + "/" + to + "/" + userId;
         log.info("Mock MVC template mock > {}", urlTemplate);
         mockMvc.perform(get(urlTemplate)
                         .contentType(MediaType.APPLICATION_JSON)

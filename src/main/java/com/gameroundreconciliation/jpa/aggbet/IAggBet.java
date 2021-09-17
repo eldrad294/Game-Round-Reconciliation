@@ -1,5 +1,8 @@
-package com.example.gameroundreconciliation.jpa.aggbet;
+package com.gameroundreconciliation.jpa.aggbet;
 
+/**
+ * Projection interface, for nativr query mapping.
+ * */
 public interface IAggBet {
 
     Long getGameId();
