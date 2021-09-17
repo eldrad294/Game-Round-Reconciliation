@@ -1,4 +1,4 @@
-package com.example.gameroundreconciliation.jpa.bet;
+package com.gameroundreconciliation.jpa.bet;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

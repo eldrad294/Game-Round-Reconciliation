@@ -1,4 +1,4 @@
-package com.example.gameroundreconciliation.jpa.bet;
+package com.gameroundreconciliation.jpa.bet;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
